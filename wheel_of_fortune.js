@@ -1,46 +1,30 @@
-// wheel_of_fortune.js
-// CoderGirl WebDev (Winter 2019) — LaunchCode
+var word = "CODERGIRL";
+var answerArray = []
+for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+}
 
-// VARIABLES /////////////////////////////////////////////////////////
+var remainingLetters = word.length;
 
-// In a normal application you would ask for user input.
-// In this exercise we will set the variables ourselves.
+while (remainingLetters > 0) {
+    alert(answerArray.join(" "));
+var guess = prompt("Guess a CAPITAL letter, keep going until you guess the solution!");
+if (guess === null) {
+    break;
+} 
+else if (guess.length !== 1) {
+    alert("Feeling lucky huh?")
+//need to figure out how to incorporate the palyer guessing the solution
 
-// Set a secret word!
-
-var word = 'ANSWER'; // ALL CAPS
-
-// Ask player if they would like to guess a letter or guess the
-// solution.
-
-var isGuessingLetter = true; // set to false to guess solution
-
-// If they are guessing a letter, set the letter that they are
-// guessing. If they are guessing the word, then set the word
-// as their guess.
-
-var guess = 'A'; // UPPERCASE
-
-// SCRIPT ////////////////////////////////////////////////////////////
-
-// If guessing a letter...
-
-	// If the word contains the letter...
-
-		// Print back the word with all instances of that letter revealed.
-
-	// If the word does not contain the letter...
-
-		// Print back "Sorry, no <letter>!" but with <letter> replaced by the player's guess.
-
-// If guessing the word...
-
-	// If they are correct...
-
-		// Print "Congratulations! You won Wheel Of Fortune!"
-
-	// If they are incorrect...
-
-		// Print back "Nope, keep trying!"
-
-// End of script!
+}
+else {
+    for (var j = 0; j < word.length; j++) {
+        if (word[j] === guess) {
+            answerArray [j] = guess;
+            remainingLetters--;
+        }
+    }
+}
+}
+alert (answerArray.join (" "));
+alert(" Whoo-hoo..Go You! The answer was " + word)
